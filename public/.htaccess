@@ -1,0 +1,31 @@
+Options -Indexes
+# /services is both services.html and the services/ folder; don't let Apache append a slash.
+DirectorySlash Off
+
+RewriteEngine On
+RewriteBase /
+
+# Old WordPress URLs -> new pages (keeps search rankings and bookmarks)
+RewriteRule ^contact-us/?$ /contact [R=301,L]
+RewriteRule ^our-service/?$ /services [R=301,L]
+RewriteRule ^power/?$ /services/power [R=301,L]
+RewriteRule ^solar/?$ /services/solar [R=301,L]
+RewriteRule ^telecommuication/?$ /services/telecom [R=301,L]
+RewriteRule ^oil-gas-industry-services/?$ /services/oil-and-gas [R=301,L]
+RewriteRule ^logistics/?$ /services/logistics [R=301,L]
+RewriteRule ^our-core-values/?$ /about#values [R=301,NE,L]
+RewriteRule ^our-mission-and-vision/?$ /about#mission [R=301,NE,L]
+RewriteRule ^our-team/?$ /about#team [R=301,NE,L]
+
+# Drop trailing slashes so each page has one URL (/about, not /about/)
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# Pre-rendered page heads: /about -> about.html, /services/power -> services/power.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+)$ /$1.html [L]
+
+# Single-page app: serve index.html for any other route that isn't a real file
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
