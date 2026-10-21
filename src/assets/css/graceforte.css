@@ -75,14 +75,16 @@ img { max-width: 100%; }
 
 /* ---------------- Logo ---------------- */
 .gf-logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
-.gf-logo img { width: 46px; height: 46px; flex-shrink: 0; object-fit: contain; }
+.gf-logo .logo-img { display: inline-flex; flex-shrink: 0; }
+.gf-logo .logo-img img { height: 68px; width: auto; }
+.gf-logo.light .logo-img { background: #fff; border-radius: 12px; padding: 6px 8px; }
 .gf-logo .name { display: block; font-weight: 500; font-size: 24px; letter-spacing: .03em; color: var(--gf-wordmark); line-height: 1; }
 .gf-logo .sub { display: block; font-size: 10.5px; font-weight: 500; letter-spacing: .06em; color: var(--gf-wordmark); margin-top: 6px; white-space: nowrap; }
 .gf-logo.light .name { color: #fff; }
 .gf-logo.light .sub { color: var(--gf-sky); }
 @media (max-width: 430px) {
   .gf-logo { gap: 9px; }
-  .gf-logo img { width: 36px; height: 36px; }
+  .gf-logo .logo-img img { height: 50px; }
   .gf-logo .name { font-size: 19px; }
   .gf-logo .sub { font-size: 8.5px; letter-spacing: .03em; margin-top: 4px; }
 }

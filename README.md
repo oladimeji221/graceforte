@@ -13,7 +13,7 @@ Vue 3 + Vite rebuild of graceforteltd.com. Styling is the Auron template (`conte
 - `public/contact.php` — contact/quote form mailer (sends to info@graceforteltd.com)
 - `public/.htaccess` — clean URLs, per-page HTML, SPA fallback, 301 redirects from the old WordPress URLs
 - `src/data/seo.ts` — page titles/descriptions; the build turns these into one HTML file per page (for link previews), `sitemap.xml` and `robots.txt`
-- `public/images/logo-mark.png` — the client’s diamond mark (cut from the original logo); `favicon.ico/png`, `icon-*.png`, `site.webmanifest`, `images/og-image.jpg` — favicons and the social share image
+- `public/images/logo.png` — the client’s full logo (trimmed from `logo-full.png`), used in the header/footer; `logo-mark.png` (diamond only) feeds `favicon.ico/png`, `icon-*.png`, `site.webmanifest`, `images/og-image.jpg` — favicons and the social share image
 
 ## Develop
 
