@@ -40,3 +40,6 @@ __screenshots__/
 
 # Client source material: contains cPanel credentials and private documents. Never commit.
 content/
+
+# Local scratch files
+.work/

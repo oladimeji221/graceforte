@@ -13,6 +13,7 @@
   --gf-muted: #55627A;
   --gf-line: #DCE4F0;
   --gf-surface: #FFFFFF;
+  --gf-wordmark: #2A16E0; /* wordmark blue supplied by the client */
 
   --tint-blue: #E8F1FF;
   --tint-amber: #FFF2D9;
@@ -73,12 +74,18 @@ img { max-width: 100%; }
 .link-arrow i { transition: transform .25s; }
 
 /* ---------------- Logo ---------------- */
-.gf-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
-.gf-logo svg { width: 40px; height: 40px; flex-shrink: 0; }
-.gf-logo .name { display: block; font-weight: 700; font-size: 20px; letter-spacing: .04em; color: var(--gf-blue); line-height: 1; }
-.gf-logo .sub { display: block; font-size: 9.5px; font-weight: 600; letter-spacing: .18em; color: var(--gf-ink); margin-top: 4px; }
+.gf-logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.gf-logo img { width: 46px; height: 46px; flex-shrink: 0; object-fit: contain; }
+.gf-logo .name { display: block; font-weight: 500; font-size: 24px; letter-spacing: .03em; color: var(--gf-wordmark); line-height: 1; }
+.gf-logo .sub { display: block; font-size: 10.5px; font-weight: 500; letter-spacing: .06em; color: var(--gf-wordmark); margin-top: 6px; white-space: nowrap; }
 .gf-logo.light .name { color: #fff; }
-.gf-logo.light .sub { color: var(--text-color-1); }
+.gf-logo.light .sub { color: var(--gf-sky); }
+@media (max-width: 430px) {
+  .gf-logo { gap: 9px; }
+  .gf-logo img { width: 36px; height: 36px; }
+  .gf-logo .name { font-size: 19px; }
+  .gf-logo .sub { font-size: 8.5px; letter-spacing: .03em; margin-top: 4px; }
+}
 
 /* ---------------- Header ---------------- */
 .gf-header {
@@ -239,7 +246,9 @@ img { max-width: 100%; }
 .pill-tabs.on-dark button.active { background: var(--gf-sky); color: var(--gf-navy); }
 
 /* ---------------- Scroll story ---------------- */
-.story { position: relative; }
+/* template.css gives every .section overflow:hidden, which turns it into a scroll container and stops
+   position:sticky from pinning the image panel. clip trims overflow without that side effect. */
+.section.story { position: relative; overflow: visible; overflow-x: clip; }
 .story-step { min-height: 70vh; display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 40px 0; opacity: .35; transition: opacity .4s; }
 .story-step.active { opacity: 1; }
 .story-step .num { font-size: 15px; font-weight: 700; color: var(--gf-sky); letter-spacing: .1em; }
