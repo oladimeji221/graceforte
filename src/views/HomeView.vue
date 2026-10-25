@@ -7,7 +7,7 @@ import FaqList from '../components/FaqList.vue'
 import PowerEstimator from '../components/PowerEstimator.vue'
 import ProjectCard from '../components/ProjectCard.vue'
 import ScrollStory from '../components/ScrollStory.vue'
-import { company, products, projects, services } from '../data/site'
+import { company, products, projects, services, team } from '../data/site'
 
 const featuredSectors = services.filter((s) => !['engineering-design', 'logistics', 'instrumentation-automation'].includes(s.slug))
 const featuredProjects = projects.filter((p) => p.image).slice(0, 8)
@@ -50,8 +50,8 @@ function scrollRail(dir: 1 | -1) {
               <div><strong>Up to 330kV</strong><small>Transmission lines</small></div>
             </div>
             <div class="float-card c2">
-              <span class="icon-chip tint-amber"><i class="bi bi-signpost-split-fill"></i></span>
-              <div><strong>31 km 33kV line</strong><small>Ajah – Eleko, Lekki</small></div>
+              <span class="icon-chip tint-amber"><i class="bi bi-diagram-3-fill"></i></span>
+              <div><strong>33/11kV substations</strong><small>Injection substations · Ikeja Electric</small></div>
             </div>
             <div class="float-card c3">
               <span class="icon-chip tint-green"><i class="bi bi-sun-fill"></i></span>
@@ -127,7 +127,7 @@ function scrollRail(dir: 1 | -1) {
               <div class="stat"><div class="n"><CountUp :to="330" /><sup>kV</sup></div><p>Highest line voltage built</p></div>
             </div>
             <div class="col-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="stat"><div class="n"><CountUp :to="31" /><sup>km</sup></div><p>Longest single 33kV line delivered</p></div>
+              <div class="stat"><div class="n"><CountUp :to="team.length" /></div><p>Engineers &amp; managers leading delivery</p></div>
             </div>
             <div class="col-6" data-aos="fade-up" data-aos-delay="300">
               <div class="stat"><div class="n"><CountUp :to="services.length" /></div><p>Integrated service lines</p></div>
