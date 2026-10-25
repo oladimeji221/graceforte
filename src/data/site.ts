@@ -260,23 +260,25 @@ export interface Project {
 
 // Client reference table from the company profile, de-duplicated.
 // Contact persons are deliberately omitted: they are private references, not for publication.
+// Titles, years and photos updated from the client's WhatsApp corrections (Oct 2026).
+// Entries without `image` had photos that turned out to show other jobs; the card shows a plain fallback.
 export const projects: Project[] = [
-  { client: 'Laralek Ultimate Ltd', title: 'Relocation of sections of 11kV and 0.415kV overhead lines along Ojuwoye Street, Mushin, Lagos', year: 2026, category: 'Power', image: '/images/work/distribution-1.jpg' },
-  { client: 'Laralek Ultimate Ltd', title: 'Relocation of power distribution lines in Mushin', year: 2026, category: 'Power', image: '/images/work/distribution-2.jpg' },
-  { client: 'Krist Ella Nig Ltd', title: 'Ondo Town feeder reconstruction and transfer of old outgoing feeder to new bay', year: 2024, category: 'Power', image: '/images/work/substation-yard.jpg' },
+  { client: 'Laralek Ultimate Ltd', title: 'Relocation of sections of 11kV and 0.415kV overhead lines along Ojuwoye Street, Mushin, Lagos', year: 2026, category: 'Power' },
+  { client: 'Laralek Ultimate Ltd', title: 'Relocation of power distribution lines in Mushin', year: 2026, category: 'Power' },
+  { client: 'Krist Ella Nig Ltd', title: 'Ondo Town feeder reconstruction and transfer of old outgoing feeder to new bay', year: 2024, category: 'Power' },
   { client: 'One Source Universal Retail Supply & Trading Co. of Nigeria Ltd', title: 'Installation of transformers across business outlets, Ikeja, Lagos', year: 2024, category: 'Power', image: '/images/work/substation-transformer.jpg' },
-  { client: 'Laralek Ultimate Ltd', title: 'Relocation of 11kV and 415V lines and substations at Abesan Estate, Ipaja, Lagos', year: 2023, category: 'Power', image: '/images/work/distribution-3.jpg' },
+  { client: 'Laralek Ultimate Ltd', title: 'Construction of 11kV and 415V lines in Lagos', year: 2023, category: 'Power', image: '/images/work/distribution-3.jpg' },
   { client: 'Prepromtech Nigeria Ltd', title: 'Construction of a 6-bedroom duplex in Okota, Lagos', year: 2023, category: 'Construction', image: '/images/work/building-2.jpg' },
-  { client: 'Laralek Ultimate Ltd', title: '31km single-circuit 33kV line from Ajah Transmission Station to Eleko Junction, Lekki–Epe Expressway', year: 2022, category: 'Power', image: '/images/work/aja-eleko-2.jpg' },
+  { client: 'Ikeja Electric', title: 'Construction of a 33/11kVA injection substation with associated 33/11kV lines at the new Alausa Transmission Substation', year: 2022, category: 'Power', image: '/images/work/substation-yard.jpg' },
+  { client: 'Laralek Ultimate Ltd', title: 'Construction of 33kV line along Ajah, Lagos', year: 2022, category: 'Power', image: '/images/work/distribution-1.jpg' },
   { client: 'Income Electrix Ltd', title: 'Supply and installation of steel structures and substation equipment with 15MVA transformer', year: 2022, category: 'Steel & Galvanizing', image: '/images/work/alausa-feeder-2.jpg' },
   { client: 'Cel Tech Engineering Ltd', title: 'Construction of office block, Amuwo Odofin, Lagos', year: 2022, category: 'Construction', image: '/images/work/building-1.jpg' },
   { client: 'Laralek Ultimate Ltd', title: 'Relocation of a section of 33kV line in Ajah, Lagos', year: 2021, category: 'Power', image: '/images/work/line-crew-2.jpg' },
+  { client: 'Ikeja Electric', title: 'Construction of 33kV power distribution line in Ikeja, Lagos', year: 2020, category: 'Power', image: '/images/work/distribution-2.jpg' },
   { client: 'Ikeja Electric', title: 'Supply and installation of control system cables at the Ikeja Injection Substation', year: 2020, category: 'Power', image: '/images/work/alausa-feeder-3.jpg' },
-  { client: 'Ikeja Electric', title: 'Relocation of sections of a 33kV line in Ikeja', year: 2020, category: 'Power', image: '/images/work/distribution-line.jpg' },
   { client: 'Income Electrix Ltd', title: 'Supply and installation of steel structures and substation equipment', year: 2020, category: 'Steel & Galvanizing', image: '/images/work/injection-substation-gantry.jpg' },
-  { client: 'Ikeja Electric', title: '33/11kV injection substation with associated lines at the new Alausa Transmission Substation', year: 2019, category: 'Power', image: '/images/work/alausa-feeder-1.jpg' },
-  { client: 'Cel Tech Engineering Ltd', title: 'NIMASA power system and protection upgrade at the Lagos, Oron and Port Harcourt offices', year: 2019, category: 'Power', image: '/images/work/focus.jpg' },
-  { client: 'Cel Tech Engineering Ltd', title: 'Civil works at Irri Gas Flow Station expansion, Delta State', year: 2019, category: 'Construction', image: '/images/work/foundation-1.jpg' },
+  { client: 'Cel Tech Engineering Ltd', title: 'Power system and protection upgrade', year: 2019, category: 'Power', image: '/images/work/focus.jpg' },
+  { client: 'Cel Tech Engineering Ltd', title: 'Civil works at a gas flow station', year: 2019, category: 'Construction', image: '/images/work/foundation-1.jpg' },
   { client: 'Cel Tech Engineering Ltd', title: '8 × 3-bedroom flats with 3-bedroom bungalow, Ajah, Lagos', year: 2018, category: 'Construction', image: '/images/work/foundation-3.jpg' },
   { client: 'Gosslink Engineering Ltd', title: 'Construction of a section of transmission line', year: 2017, category: 'Power', image: '/images/work/transmission-tower-1.jpg' },
   { client: 'Schneider Electric Nigeria Ltd', title: 'Fabrication and hot-dip galvanizing of steel pipe profiles', year: 2016, category: 'Steel & Galvanizing', image: '/images/work/pipe-coating.jpg' },
