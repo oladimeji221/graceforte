@@ -251,10 +251,11 @@ export const products: Product[] = [
 export type ProjectCategory = 'Power' | 'Steel & Galvanizing' | 'Construction'
 
 export interface Project {
-  client: string
+  client?: string
   title: string
-  year: number
+  year: number // kept for ordering only; not shown on the site (client request)
   category: ProjectCategory
+  tag?: string // subheading chip; defaults to the category
   image?: string
 }
 
@@ -267,6 +268,7 @@ export const projects: Project[] = [
   { client: 'Laralek Ultimate Ltd', title: 'Relocation of power distribution lines in Mushin', year: 2026, category: 'Power' },
   { client: 'Krist Ella Nig Ltd', title: 'Ondo Town feeder reconstruction and transfer of old outgoing feeder to new bay', year: 2024, category: 'Power' },
   { client: 'One Source Universal Retail Supply & Trading Co. of Nigeria Ltd', title: 'Installation of transformers across business outlets, Ikeja, Lagos', year: 2024, category: 'Power', image: '/images/work/substation-transformer.jpg' },
+  { client: 'Cel Tech Engineering Ltd', title: 'Power system and protection upgrade, Lagos', year: 2024, category: 'Power', image: '/images/work/focus.jpg' },
   { client: 'Laralek Ultimate Ltd', title: 'Construction of 11kV and 415V lines in Lagos', year: 2023, category: 'Power', image: '/images/work/distribution-3.jpg' },
   { client: 'Prepromtech Nigeria Ltd', title: 'Construction of a 6-bedroom duplex in Okota, Lagos', year: 2023, category: 'Construction', image: '/images/work/building-2.jpg' },
   { client: 'Ikeja Electric', title: 'Construction of a 33/11kVA injection substation with associated 33/11kV lines at the new Alausa Transmission Substation', year: 2022, category: 'Power', image: '/images/work/substation-yard.jpg' },
@@ -277,13 +279,12 @@ export const projects: Project[] = [
   { client: 'Ikeja Electric', title: 'Construction of 33kV power distribution line in Ikeja, Lagos', year: 2020, category: 'Power', image: '/images/work/distribution-2.jpg' },
   { client: 'Ikeja Electric', title: 'Supply and installation of control system cables at the Ikeja Injection Substation', year: 2020, category: 'Power', image: '/images/work/alausa-feeder-3.jpg' },
   { client: 'Income Electrix Ltd', title: 'Supply and installation of steel structures and substation equipment', year: 2020, category: 'Steel & Galvanizing', image: '/images/work/injection-substation-gantry.jpg' },
-  { client: 'Cel Tech Engineering Ltd', title: 'Power system and protection upgrade', year: 2019, category: 'Power', image: '/images/work/focus.jpg' },
-  { client: 'Cel Tech Engineering Ltd', title: 'Civil works at a gas flow station', year: 2019, category: 'Construction', image: '/images/work/foundation-1.jpg' },
-  { client: 'Cel Tech Engineering Ltd', title: '8 × 3-bedroom flats with 3-bedroom bungalow, Ajah, Lagos', year: 2018, category: 'Construction', image: '/images/work/foundation-3.jpg' },
-  { client: 'Gosslink Engineering Ltd', title: 'Construction of a section of transmission line', year: 2017, category: 'Power', image: '/images/work/transmission-tower-1.jpg' },
+  { client: 'Cel Tech Engineering Ltd', title: 'Civil works, Delta State', year: 2019, category: 'Construction', image: '/images/work/foundation-1.jpg' },
+  { client: 'Gosslink Engineering Ltd', title: 'Construction of a section of 33kV line at Ajah, Lagos', year: 2018, category: 'Power', image: '/images/work/foundation-3.jpg' },
+  { title: 'Construction of 132/33kV transmission substation', year: 2017, category: 'Power', image: '/images/work/transmission-tower-1.jpg' },
   { client: 'Schneider Electric Nigeria Ltd', title: 'Fabrication and hot-dip galvanizing of steel pipe profiles', year: 2016, category: 'Steel & Galvanizing', image: '/images/work/pipe-coating.jpg' },
-  { client: 'Energovod Engineering Ltd', title: 'Fabrication and hot-dip galvanizing of steel angle profiles (multiple orders)', year: 2016, category: 'Steel & Galvanizing', image: '/images/work/transmission-tower-2.jpg' },
-  { client: 'Income Electrix Ltd', title: 'Design, fabrication and galvanizing of steel structures', year: 2015, category: 'Steel & Galvanizing', image: '/images/work/steel-building-frame.jpg' },
+  { client: 'Gosslink Engineering Ltd', title: 'Construction of a section of 33kV line, Lagos', year: 2016, category: 'Power', image: '/images/work/transmission-tower-2.jpg' },
+  { title: 'Design, fabrication and galvanizing of steel structures', year: 2015, category: 'Steel & Galvanizing', tag: 'Steel Building', image: '/images/work/steel-building-frame.jpg' },
   { client: 'Power System & Automation Solution Ltd', title: 'Structural design for power distribution towers', year: 2015, category: 'Steel & Galvanizing', image: '/images/work/power-project.jpg' },
 ]
 
