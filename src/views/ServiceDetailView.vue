@@ -11,13 +11,17 @@ const route = useRoute()
 // The router guard guarantees the slug exists.
 const service = computed(() => services.find((s) => s.slug === route.params.slug)!)
 
+const gallery = computed(() => service.value.gallery.map((g) => (typeof g === 'string' ? { src: g } : g)))
+
 const related = computed(() => {
   const cat =
     service.value.slug === 'steel-fabrication' ? 'Steel & Galvanizing'
     : service.value.slug === 'construction' ? 'Construction'
     : service.value.slug === 'power' ? 'Power'
     : null
-  return cat ? projects.filter((p) => p.category === cat).slice(0, 3) : []
+  // Prefer projects that have photos; photo-less ones only fill remaining slots.
+  const matches = cat ? projects.filter((p) => p.category === cat) : []
+  return [...matches.filter((p) => p.image), ...matches.filter((p) => !p.image)].slice(0, 3)
 })
 </script>
 
@@ -34,17 +38,35 @@ const related = computed(() => {
             <p class="lead-lg mb-0">{{ service.intro }}</p>
           </div>
 
-          <div class="rounded-6 padding-50 bg-heading-color-3 card-cta" data-aos="fade-up">
-            <h4 class="text-white mb-4">What’s included</h4>
+          <div v-if="service.groups" class="d-flex flex-column gap-3">
+            <h4 class="text-heading-color-3 mb-1">What we do</h4>
+            <div v-for="(g, i) in service.groups" :key="g.title" class="scope-group" data-aos="fade-up">
+              <span class="num">{{ String(i + 1).padStart(2, '0') }}</span>
+              <div class="d-flex flex-column gap-2">
+                <h5>{{ g.title }}</h5>
+                <span v-if="g.subtitle" class="subtitle">{{ g.subtitle }}</span>
+                <p v-if="g.text" class="mb-0">{{ g.text }}</p>
+                <ul v-if="g.items" class="check-list mt-1">
+                  <li v-for="item in g.items" :key="item"><i class="bi bi-check-circle-fill"></i>{{ item }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="service.scope.length" class="rounded-6 padding-50 bg-heading-color-3 card-cta" data-aos="fade-up">
+            <h4 class="text-white mb-4">{{ service.groups ? 'Also included' : 'What’s included' }}</h4>
             <ul class="check-list on-dark">
               <li v-for="item in service.scope" :key="item"><i class="bi bi-check-circle-fill"></i>{{ item }}</li>
             </ul>
           </div>
 
-          <div v-if="service.gallery.length" class="d-flex flex-column gap-4" data-aos="fade-up">
+          <div v-if="gallery.length" class="d-flex flex-column gap-4" data-aos="fade-up">
             <h4 class="text-heading-color-3 mb-0">From the field</h4>
             <div class="gallery">
-              <img v-for="g in service.gallery" :key="g" :src="g" :alt="service.title" loading="lazy" />
+              <figure v-for="g in gallery" :key="g.src">
+                <img :src="g.src" :alt="g.caption ?? service.title" loading="lazy" />
+                <figcaption v-if="g.caption">{{ g.caption }}</figcaption>
+              </figure>
             </div>
           </div>
 

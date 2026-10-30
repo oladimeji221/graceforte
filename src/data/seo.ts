@@ -19,7 +19,7 @@ export const seoPages: SeoPage[] = [
     path: '/',
     title: `${SITE_NAME} | Engineering & EPC for Power, Telecom, Oil & Gas`,
     description:
-      'Lagos-based engineering and EPC company delivering power lines up to 330kV, injection substations, solar and hybrid systems, telecom sites, oil and gas services and galvanized steel structures across Nigeria.',
+      'Lagos-based engineering and EPC company delivering power lines up to 400kV, injection substations, solar and hybrid systems, telecom sites, oil and gas services and galvanized steel structures across Nigeria.',
     priority: 1.0,
   },
   {

@@ -29,7 +29,7 @@ function scrollRail(dir: 1 | -1) {
           </h1>
           <p class="lead-lg mb-0" data-aos="fade-up" data-aos-delay="200">
             Graceforte Business Links is an engineering-driven EPC company. We design, build and maintain power lines up to
-            330kV, substations, solar &amp; hybrid systems, telecom sites and galvanized steel structures.
+            400kV, substations, solar &amp; hybrid systems, telecom sites and galvanized steel structures.
           </p>
           <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="300">
             <RouterLink to="/contact#quote" class="btn-gf">Request a quote <i class="bi bi-arrow-right"></i></RouterLink>
@@ -47,7 +47,7 @@ function scrollRail(dir: 1 | -1) {
             </div>
             <div class="float-card c1">
               <span class="icon-chip tint-blue"><i class="bi bi-lightning-charge-fill"></i></span>
-              <div><strong>Up to 330kV</strong><small>Transmission lines</small></div>
+              <div><strong>Up to 400kV</strong><small>Transmission lines</small></div>
             </div>
             <div class="float-card c2">
               <span class="icon-chip tint-amber"><i class="bi bi-diagram-3-fill"></i></span>

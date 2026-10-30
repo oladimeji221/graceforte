@@ -17,6 +17,19 @@ export const company = {
   mapQuery: '44 Godwin Omonua Way, Ire-Akari Estate, Isolo, Lagos',
 }
 
+export interface Photo {
+  src: string
+  caption?: string
+}
+
+// A detailed sub-service (e.g. "Transmission Lines") with its own scope list.
+export interface ScopeGroup {
+  title: string
+  subtitle?: string
+  text?: string
+  items?: string[]
+}
+
 export interface Service {
   slug: string
   title: string
@@ -25,7 +38,8 @@ export interface Service {
   icon: string
   tint: string
   image: string
-  gallery: string[]
+  gallery: (string | Photo)[]
+  groups?: ScopeGroup[] // when present, shown as the main scope; `scope` becomes "Also included"
   scope: string[]
 }
 
@@ -33,23 +47,58 @@ export const services: Service[] = [
   {
     slug: 'power',
     title: 'Power Transmission & Distribution',
-    short: 'Transmission and distribution lines from 415V up to 330kV, injection substations and switchyards.',
+    short: 'Transmission lines from 132kV to 400kV, 33kV, 11kV and 0.415kV distribution lines, injection substations and switchyards.',
     intro:
-      'We engineer, procure and construct power infrastructure for distribution companies, developers and industrial users, from overhead lines to fully equipped injection substations.',
+      'We engineer, procure and construct power infrastructure for transmission and distribution companies, developers and industrial users: from line route survey and tower erection to fully equipped power and injection substations.',
     icon: 'bi-lightning-charge-fill',
     tint: 'blue',
     image: '/images/work/power-project.jpg',
     gallery: [
-      '/images/work/alausa-feeder-1.jpg',
-      '/images/work/transmission-tower-1.jpg',
-      '/images/work/injection-substation-gantry.jpg',
-      '/images/work/aja-eleko-poles.jpg',
+      { src: '/images/work/tower-132kv-transmission.jpg', caption: '132kV transmission tower' },
+      { src: '/images/work/tower-33kv-double-circuit.jpg', caption: '33kV double circuit tower' },
+      { src: '/images/work/tower-11kv-lattice-lekki.jpg', caption: '11kV lattice tower at Lekki' },
+      { src: '/images/work/substation-yard.jpg', caption: 'Injection substation, new Alausa Transmission Substation' },
+    ],
+    groups: [
+      {
+        title: 'Transmission Lines',
+        subtitle: '400kV, 330kV, 220kV and 132kV',
+        items: [
+          'Engineering design',
+          'Line route survey',
+          'Equipment and materials procurement',
+          'Civil / foundation work',
+          'Tower erection with line accessories',
+          'Stringing of conductors',
+        ],
+      },
+      {
+        title: 'Distribution Lines',
+        subtitle: '33kV, 11kV and 0.415kV lines, rural electrification',
+        items: [
+          'Engineering design',
+          'Line route survey',
+          'Equipment and materials procurement',
+          'Civil / foundation work',
+          'Tower / pole erection with line accessories',
+          'Stringing of conductors',
+        ],
+      },
+      {
+        title: 'Power & Injection Substations, Switchyards',
+        items: [
+          'Engineering design',
+          'Layout survey and design',
+          'Mechanical & electrical equipment and materials procurement and installation: transformers from 50kVA 11/0.4kV up to 30MVA, control panels, etc.',
+          'Civil / foundation work',
+          'Cable trench',
+          'Fencing & plinths',
+          'Buildings, including control room',
+          'Supply and erection of equipment support structures',
+        ],
+      },
     ],
     scope: [
-      'Engineering design and material procurement',
-      'Transmission & distribution lines: 330kV, 132kV, 33kV, 11kV and 415V',
-      'Power and injection substations, switchyards, mechanical & electrical equipment',
-      'Rural electrification',
       'Street lighting',
       'Industrial & domestic electrical fittings and appliances',
       'Power generator plant installation',
@@ -77,19 +126,48 @@ export const services: Service[] = [
   {
     slug: 'telecom',
     title: 'Telecommunication',
-    short: 'Site acquisition, base station builds, hybrid power and WAN/LAN systems.',
+    short: 'Site acquisition, turnkey site builds, tower audit, strengthening and supply, and fiber optic infrastructure.',
     intro:
-      'We support network operators and tower companies end to end, from finding and securing sites to building base stations and keeping them powered.',
+      'We support network operators and infrastructure companies end to end: securing strategic sites across Nigeria, building and strengthening towers, and rolling out fiber.',
     icon: 'bi-broadcast-pin',
     tint: 'violet',
-    image: '/images/work/telecom-towers.jpg',
-    gallery: ['/images/work/telecom-mast.jpg', '/images/work/telecom-rack.jpg', '/images/work/telecom-aviation-lights.jpg'],
+    image: '/images/work/telecom-lattice-tower.jpg',
+    gallery: [
+      { src: '/images/work/telecom-lattice-tower.jpg', caption: 'Telecom lattice steel towers' },
+      { src: '/images/work/telecom-monopole.jpg', caption: 'Telecom monopole steel towers' },
+      '/images/work/telecom-mast.jpg',
+      '/images/work/telecom-aviation-lights.jpg',
+    ],
+    groups: [
+      {
+        title: 'Site Acquisition',
+        text: 'We render professional services for the acquisition of strategic sites across Nigeria, leveraging our relationships and management capability for infrastructure companies in Nigeria.',
+      },
+      {
+        title: 'Turnkey Site Build Services',
+        text: 'We have the experience and capacity to build telecom base sites with the relevant equipment, and lattice and steel poles from our partners.',
+      },
+      {
+        title: 'Tower Audit and Strengthening Services',
+        text: 'We have the capacity and experience for tower audit and strengthening.',
+      },
+      {
+        title: 'Tower Supply',
+        text: 'We design and supply steel towers and poles of different heights and orientations from our partners’ factories in Nigeria and offshore.',
+      },
+      {
+        title: 'Fiber Optics Infrastructure Development',
+        subtitle: 'Aerial and terrestrial fiber',
+        items: [
+          'Fiber right-of-way agency',
+          'Equipment and material procurement',
+          'Construction and installation of fiber optic infrastructure',
+        ],
+      },
+    ],
     scope: [
       'Engineering design',
-      'Material procurement and installation',
-      'Site acquisition',
-      'Base station site builds',
-      'Hybrid power generating systems',
+      'Hybrid power generating systems for base stations',
       'WAN & LAN systems',
     ],
   },
@@ -143,7 +221,11 @@ export const services: Service[] = [
     icon: 'bi-bricks',
     tint: 'slate',
     image: '/images/work/steel-building-frame.jpg',
-    gallery: ['/images/work/steel-building-frame.jpg', '/images/work/pipe-coating.jpg', '/images/work/transmission-tower-2.jpg'],
+    gallery: [
+      '/images/work/steel-building-frame.jpg',
+      { src: '/images/work/galvanized-beams.jpg', caption: 'Hot-dip galvanized beams' },
+      '/images/work/pipe-coating.jpg',
+    ],
     scope: [
       'Structural design',
       'Steel structures from pipes, H-beams and angle sections',
@@ -242,7 +324,7 @@ export const products: Product[] = [
     name: 'Hot-Dip Galvanized Steel Profiles',
     summary: 'Angles, pipes, channels and H-beams galvanized for long-life corrosion protection.',
     points: ['Angle and pipe profiles', 'Channels and H-beams', 'Cut to length on request'],
-    image: '/images/work/transmission-tower-2.jpg',
+    image: '/images/work/galvanized-beams.jpg',
     tint: 'amber',
     icon: 'bi-layers-fill',
   },
@@ -401,7 +483,7 @@ export const faqs = [
   },
   {
     q: 'What voltage levels can you build?',
-    a: 'We construct transmission and distribution lines from 415V up to 330kV, as well as 33/11kV injection substations and switchyards.',
+    a: 'Transmission lines at 132kV, 220kV, 330kV and 400kV; distribution lines at 33kV, 11kV and 0.415kV; plus power and injection substations and switchyards with transformers from 50kVA up to 30MVA.',
   },
   {
     q: 'Do you handle projects outside Lagos?',

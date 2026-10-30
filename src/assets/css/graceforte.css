@@ -406,7 +406,16 @@ section.hero-banner .banner-sub { color: var(--text-color-1); max-width: 640px; 
 .side-card a.svc:hover { background: #fff; }
 .side-card a.svc.router-link-exact-active { background: var(--gf-blue); color: #fff; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.gallery figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
 .gallery img { width: 100%; height: 240px; object-fit: cover; border-radius: 20px; }
+.gallery figcaption { font-size: 14px; font-weight: 500; color: var(--gf-ink); padding: 0 4px; }
+.scope-group { display: flex; gap: 20px; padding: 26px; border-radius: 24px; border: 1px solid var(--gf-line); background: #fff; transition: border-color .25s, box-shadow .25s; }
+.scope-group:hover { border-color: var(--gf-blue); box-shadow: 0 12px 30px -22px rgba(21, 80, 179, .7); }
+.scope-group .num { flex-shrink: 0; width: 48px; height: 48px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; background: var(--tint-blue); color: var(--gf-blue); font-weight: 700; }
+.scope-group h5 { margin: 0; font-size: 20px; font-weight: 600; color: var(--gf-ink); }
+.scope-group .subtitle { color: var(--gf-blue); font-weight: 600; font-size: 15px; }
+.scope-group p { font-size: 16px; }
+@media (max-width: 575.98px) { .scope-group { flex-direction: column; gap: 14px; padding: 22px; } }
 
 /* ---------------- Contact ---------------- */
 .contact-card { display: flex; gap: 16px; padding: 22px; border-radius: 22px; background: #fff; border: 1px solid var(--gf-line); height: 100%; color: var(--gf-ink); }
