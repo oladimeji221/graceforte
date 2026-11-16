@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import CtaBand from '../components/CtaBand.vue'
 import PageBanner from '../components/PageBanner.vue'
@@ -10,6 +10,14 @@ import { company, projects, services } from '../data/site'
 const route = useRoute()
 // The router guard guarantees the slug exists.
 const service = computed(() => services.find((s) => s.slug === route.params.slug)!)
+
+const openGroup = ref<number | null>(0)
+watch(
+  () => route.params.slug,
+  () => {
+    openGroup.value = 0
+  }
+)
 
 const gallery = computed(() => service.value.gallery.map((g) => (typeof g === 'string' ? { src: g } : g)))
 
@@ -40,15 +48,36 @@ const related = computed(() => {
 
           <div v-if="service.groups" class="d-flex flex-column gap-3">
             <h4 class="text-heading-color-3 mb-1">What we do</h4>
-            <div v-for="(g, i) in service.groups" :key="g.title" class="scope-group" data-aos="fade-up">
-              <span class="num">{{ String(i + 1).padStart(2, '0') }}</span>
-              <div class="d-flex flex-column gap-2">
-                <h5>{{ g.title }}</h5>
-                <span v-if="g.subtitle" class="subtitle">{{ g.subtitle }}</span>
-                <p v-if="g.text" class="mb-0">{{ g.text }}</p>
-                <ul v-if="g.items" class="check-list mt-1">
-                  <li v-for="item in g.items" :key="item"><i class="bi bi-check-circle-fill"></i>{{ item }}</li>
-                </ul>
+            <div
+              v-for="(g, i) in service.groups"
+              :key="g.title"
+              class="scope-group"
+              :class="{ open: openGroup === i }"
+              data-aos="fade-up"
+            >
+              <button
+                type="button"
+                class="scope-head"
+                :aria-expanded="openGroup === i"
+                :aria-controls="`scope-group-${i}`"
+                @click="openGroup = openGroup === i ? null : i"
+              >
+                <span class="num">{{ String(i + 1).padStart(2, '0') }}</span>
+                <span class="d-flex flex-column gap-1 flex-grow-1">
+                  <h5>{{ g.title }}</h5>
+                  <span v-if="g.subtitle" class="subtitle">{{ g.subtitle }}</span>
+                </span>
+                <i class="bi bi-plus-lg toggle-icon"></i>
+              </button>
+              <div :id="`scope-group-${i}`" class="scope-body" role="region">
+                <div>
+                  <div class="scope-body-inner">
+                    <p v-if="g.text" class="mb-0">{{ g.text }}</p>
+                    <ul v-if="g.items" class="check-list" :class="{ 'mt-2': g.text }">
+                      <li v-for="item in g.items" :key="item"><i class="bi bi-check-circle-fill"></i>{{ item }}</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
