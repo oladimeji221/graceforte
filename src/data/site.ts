@@ -145,17 +145,17 @@ export const services: Service[] = [
       },
       {
         title: 'Turnkey Site Build Services',
-        text: 'We have the experience and capacity to build telecom base sites with the relevant equipment, and lattice and steel poles from our partners.',
+        text: 'We have the experience and capacity to build telecom base sites with the relevant equipment, including lattice towers and steel poles.',
       },
       {
         title: 'Tower Audit and Strengthening Services',
         text: 'We have the capacity and experience for tower audit and strengthening.',
       },
       {
-        title: 'Fiber Right of Way Agency & Fiber Optics Infrastructure Development',
+        title: 'Fiber Right of Way & Fiber Optics Infrastructural Development',
         subtitle: 'Aerial and terrestrial fiber',
         items: [
-          'Fiber right-of-way agency',
+          'Fiber right-of-way',
           'Equipment and material procurement',
           'Construction and installation of fiber optic infrastructure',
         ],
@@ -168,7 +168,6 @@ export const services: Service[] = [
     scope: [
       'Engineering design',
       'Hybrid power generating systems for base stations',
-      'WAN & LAN systems',
     ],
   },
   {
@@ -376,7 +375,7 @@ export const services: Service[] = [
     image: '/images/work/aja-eleko-poles.jpg',
     gallery: ['/images/work/aja-eleko-poles.jpg', '/images/work/line-crew-1.jpg'],
     scope: [
-      'Haulage and transportation (including 5-ton HIAB trucks)',
+      'Haulage and transportation',
       'Inventory management',
       'Warehousing',
       'Procurement of materials and equipment',
@@ -449,12 +448,11 @@ export const projects: Project[] = [
   { client: 'Prepromtech Nigeria Ltd', title: 'Construction of a 6-bedroom duplex in Okota, Lagos', year: 2023, category: 'Construction', image: '/images/work/building-2.jpg' },
   { client: 'Ikeja Electric', title: 'Construction of a 33/11kVA injection substation with associated 33/11kV lines at the new Alausa Transmission Substation', year: 2022, category: 'Power', image: '/images/work/substation-yard.jpg' },
   { client: 'Laralek Ultimate Ltd', title: 'Construction of 33kV line along Ajah, Lagos', year: 2022, category: 'Power', image: '/images/work/distribution-1.jpg' },
-  { client: 'Income Electrix Ltd', title: 'Supply and installation of steel structures and substation equipment with 15MVA transformer', year: 2022, category: 'Steel & Galvanizing', image: '/images/work/alausa-feeder-2.jpg' },
+  { client: 'Ikeja Electric', title: 'Construction of Injection Substation with the necessary equipment and equipment steel support structures', year: 2022, category: 'Steel & Galvanizing', image: '/images/work/alausa-feeder-2.jpg' },
   { client: 'Cel Tech Engineering Ltd', title: 'Construction of office block, Amuwo Odofin, Lagos', year: 2022, category: 'Construction', image: '/images/work/building-1.jpg' },
   { client: 'Laralek Ultimate Ltd', title: 'Relocation of a section of 33kV line in Ajah, Lagos', year: 2021, category: 'Power', image: '/images/work/line-crew-2.jpg' },
   { client: 'Ikeja Electric', title: 'Construction of 33kV power distribution line in Ikeja, Lagos', year: 2020, category: 'Power', image: '/images/work/distribution-2.jpg' },
   { client: 'Ikeja Electric', title: 'Supply and installation of control system cables at the Ikeja Injection Substation', year: 2020, category: 'Power', image: '/images/work/alausa-feeder-3.jpg' },
-  { client: 'Income Electrix Ltd', title: 'Supply and installation of steel structures and substation equipment', year: 2020, category: 'Steel & Galvanizing', image: '/images/work/injection-substation-gantry.jpg' },
   { client: 'Cel Tech Engineering Ltd', title: 'Civil works, Delta State', year: 2019, category: 'Construction', image: '/images/work/foundation-1.jpg' },
   { client: 'Gosslink Engineering Ltd', title: 'Construction of a section of 33kV line at Ajah, Lagos', year: 2018, category: 'Power', image: '/images/work/foundation-3.jpg' },
   { title: 'Construction of 132/33kV transmission substation', year: 2017, category: 'Power', image: '/images/work/transmission-tower-1.jpg' },
