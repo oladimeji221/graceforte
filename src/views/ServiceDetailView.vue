@@ -53,7 +53,6 @@ const related = computed(() => {
               :key="g.title"
               class="scope-group"
               :class="{ open: openGroup === i }"
-              data-aos="fade-up"
             >
               <button
                 type="button"
@@ -70,13 +69,11 @@ const related = computed(() => {
                 <i class="bi bi-plus-lg toggle-icon"></i>
               </button>
               <div :id="`scope-group-${i}`" class="scope-body" role="region">
-                <div>
-                  <div class="scope-body-inner">
-                    <p v-if="g.text" class="mb-0">{{ g.text }}</p>
-                    <ul v-if="g.items" class="check-list" :class="{ 'mt-2': g.text }">
-                      <li v-for="item in g.items" :key="item"><i class="bi bi-check-circle-fill"></i>{{ item }}</li>
-                    </ul>
-                  </div>
+                <div class="scope-body-inner">
+                  <p v-if="g.text" class="mb-0">{{ g.text }}</p>
+                  <ul v-if="g.items" class="check-list" :class="{ 'mt-2': g.text }">
+                    <li v-for="item in g.items" :key="item"><i class="bi bi-check-circle-fill"></i>{{ item }}</li>
+                  </ul>
                 </div>
               </div>
             </div>
