@@ -49,8 +49,8 @@ export const seoPages: SeoPage[] = [
     path: '/products',
     title: `Products | ${SITE_NAME}`,
     description:
-      'Greenfield termination and joint kits, fabricated galvanized steel structures and hot-dip galvanized steel profiles, supplied direct or with installation.',
-    image: '/images/work/transmission-tower-2.jpg',
+      'Transformers, substation equipment, XLPE armoured cables, conductors, overhead line materials, termination kits, fiber optics, galvanized steel structures and safety materials.',
+    image: '/images/work/transformer-2mva.jpg',
     priority: 0.8,
   },
   {

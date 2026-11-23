@@ -11,6 +11,7 @@ import { company, products, projects, services, team } from '../data/site'
 
 const featuredSectors = services.filter((s) => !['engineering-design', 'logistics', 'instrumentation-automation'].includes(s.slug))
 const featuredProjects = projects.filter((p) => p.image).slice(0, 8)
+const featuredProductsList = products.slice(0, 6)
 
 const rail = ref<HTMLElement>()
 function scrollRail(dir: 1 | -1) {
@@ -25,7 +26,7 @@ function scrollRail(dir: 1 | -1) {
       <div class="row align-items-center g-5">
         <div class="col-12 col-lg-6 hero-copy">
           <h1 class="display mb-0" data-aos="fade-up" data-aos-delay="100">
-            Powering Nigeria’s <span class="text-gradient">grid, towers</span> &amp; industry.
+            Competence, <span class="text-gradient">Innovation</span> &amp; Excellence.
           </h1>
           <p class="lead-lg mb-0" data-aos="fade-up" data-aos-delay="200">
             Graceforte Business Links is an engineering-driven EPC company. We design, build and maintain power lines up to
@@ -43,7 +44,7 @@ function scrollRail(dir: 1 | -1) {
         <div class="col-12 col-lg-6">
           <div class="hero-visual" data-aos="fade-left" data-aos-duration="1000">
             <div class="main-img">
-              <img src="/images/stock/aerial-substation.jpg" alt="Aerial view of a large solar power plant at sunset" fetchpriority="high" />
+              <img src="/images/work/substation-yard.jpg" alt="33/11kV injection substation and power infrastructure" fetchpriority="high" />
             </div>
             <div class="float-card c1">
               <span class="icon-chip tint-blue"><i class="bi bi-lightning-charge-fill"></i></span>
@@ -153,7 +154,7 @@ function scrollRail(dir: 1 | -1) {
         </div>
       </div>
       <div class="row g-4">
-        <div v-for="(p, i) in products" :key="p.slug" class="col-12 col-md-6 col-lg-4" data-aos="fade-up" :data-aos-delay="i * 120">
+        <div v-for="(p, i) in featuredProductsList" :key="p.slug" class="col-12 col-md-6 col-lg-4" data-aos="fade-up" :data-aos-delay="i * 120">
           <article class="product-card">
             <div class="media">
               <img :src="p.image" :alt="p.name" loading="lazy" />
