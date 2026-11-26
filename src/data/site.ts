@@ -238,10 +238,10 @@ export const services: Service[] = [
   },
   {
     slug: 'steel-fabrication',
-    title: 'Structural Steel Fabrication & Galvanizing',
+    title: 'Structural Steel Fabrication and Galvanizing',
     short: 'Hot-dip galvanized steel towers, poles, gantries, buildings, platforms and profiles for power, telecom, oil & gas and construction.',
     intro:
-      'Through our partnerships with OEMs in Nigeria and offshore, we fabricate hot-dip galvanized steel structures for the power, telecom, construction and oil & gas industries — finished to protect against Nigerian weather for decades.',
+      'We engage in all forms of steel fabrication, blasting and coating, hot-dip galvanizing and field installation of steel profiles and structures. We supply fabricated hot-dip galvanized steel structures for the power, telecom, construction and oil & gas industries.',
     icon: 'bi-bricks',
     tint: 'slate',
     image: '/images/work/steel-building-frame.jpg',
@@ -292,8 +292,9 @@ export const services: Service[] = [
     ],
     scope: [
       'Structural design',
-      'Epoxy and red-oxide coating',
-      'Hot-dip galvanizing (with certified OEM partners)',
+      'Blasting and coating (epoxy & red-oxide)',
+      'Hot-dip galvanizing',
+      'Field installation of steel profiles and structures',
     ],
   },
   {
